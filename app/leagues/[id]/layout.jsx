@@ -1,4 +1,4 @@
-import PageTitle from "@/components/PageTitle"
+import PageTitle from "./../../PageTitle"
 import NavItem from "./NavItem";
 import config from "@/config";
 

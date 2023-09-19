@@ -26,8 +26,8 @@ export default function Navbar() {
                 </Link>
                 <nav className="flex justify-around gap-5 opacity-0 md:opacity-100">
                     {
-                        links.map(link => (
-                            <NavbarLink link={link} />
+                        links.map((link, index) => (
+                            <NavbarLink key={index} link={link} />
                         ))
                     }
                 </nav>

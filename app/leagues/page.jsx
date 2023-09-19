@@ -1,4 +1,4 @@
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "./../PageTitle";
 import LeagueContainer from "./LeagueContainer";
 import config from "@/config";
 
