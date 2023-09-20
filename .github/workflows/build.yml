@@ -24,4 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build with Next.js
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
         run: npm run build
