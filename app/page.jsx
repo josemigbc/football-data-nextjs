@@ -1,17 +1,28 @@
+import DateForm from "./DateForm";
 import MatchList from "./MatchList";
 import PageTitle from "./PageTitle";
 import config from "@/config";
 
 const baseUrl = config.BASE_URL
-async function getMatches() {
-  const response = await fetch(`${baseUrl}/matches/`)
+async function getMatches(date=null) {
+  const response = await fetch(`${baseUrl}/matches/${date ? `?date=${date}`: ""}`)
   const data = response.json()
   return data
 }
+export default async function Page({searchParams}) {
 
-export default async function Page() {
+  const date = searchParams.date
+  const data = date ? await getMatches(date): await getMatches()
 
-  const data = await getMatches()
+  if (data.length === 0) {
+    return (
+      <main>
+        <DateForm date={date}/>
+        <PageTitle text={"Matches"} />
+        <p className="text-center my-5">There are no matches today</p>
+      </main>
+    )
+  }
   const dataByLeague = {}
 
   data.forEach(element => {
@@ -24,12 +35,13 @@ export default async function Page() {
 
   return (
     <main>
+      <DateForm date={date}/>
       <PageTitle text={"Matches"} />
       {
-        Object.entries(dataByLeague).map(([league, data],index) => (
+        Object.entries(dataByLeague).map(([league, data], index) => (
           <section key={index}>
             <h2 className="text-lg items-center mb-2 px-6">{data[0].competition.name}</h2>
-            <MatchList data={data}/>
+            <MatchList data={data} />
           </section>
         ))
       }

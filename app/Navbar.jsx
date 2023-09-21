@@ -19,7 +19,7 @@ export default function Navbar() {
     ]
 
     return (
-        <header className="w-full shadow-md">
+        <header className="w-full shadow-md fixed top-0 left-0 bg-inherit">
             <div className="flex justify-between gap-10 items-center md:px-10 px-5 py-3">
                 <Link href="/" className="text-xl text-black">
                     Predictor

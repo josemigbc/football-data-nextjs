@@ -7,9 +7,18 @@ const getStandings = async (id) => {
     return await response.json()
 }
 
-export default async function Page({params}){
+export default async function Page({ params }) {
 
     const data = await getStandings(params.id)
-
-    return <Standings data={data[0].table} />
+    
+    return (
+        <div>
+            {data.map(group => (
+                <section className="px-5 mb-3">
+                    <h4 className="text-center">{group.group}</h4>
+                    <Standings data={group.table} />
+                </section>
+            ))}
+        </div>
+    )
 }
