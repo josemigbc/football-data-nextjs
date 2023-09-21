@@ -11,5 +11,5 @@ export default async function Page({params}){
 
     const data = await getMatches(params.id)
 
-    return <MatchList data={data.results}/>
+    return <MatchList data={data}/>
 }

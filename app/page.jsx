@@ -14,7 +14,7 @@ export default async function Page() {
   const data = await getMatches()
   const dataByLeague = {}
 
-  data.results.forEach(element => {
+  data.forEach(element => {
     if (dataByLeague[element.competition.id]) {
       dataByLeague[element.competition.id].push(element)
     } else {

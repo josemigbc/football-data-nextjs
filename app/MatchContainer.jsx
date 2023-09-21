@@ -11,7 +11,8 @@ const TeamContainer = ({team}) => {
     )
 }
 
-export default function MatchContainer({data}) {
+export default function MatchContainer({data, found, setFound}) {
+
     return (
         <article className="grid grid-cols-4 hover:bg-gray-200">
             <div className="col-span-3 border-r-2 border-gray-500">

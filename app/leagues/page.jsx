@@ -16,7 +16,7 @@ export default async function Page() {
         <main>
             <PageTitle text={"Leagues"} />
             <div className="flex flex-col gap-3 px-5 py-3 md:px-10">
-                {data.results.map(league => <LeagueContainer key={league.id} data={league}/>)}
+                {data.map(league => <LeagueContainer key={league.id} data={league}/>)}
             </div>
         </main>
     )
