@@ -3,7 +3,7 @@ import config from "@/config";
 
 const baseUrl = config.BASE_URL
 const getMatches = async (id) => {
-    const response = await fetch(`${baseUrl}/matches/?competition=${id}`)
+    const response = await fetch(`${baseUrl}/matches/?competition=${id}`,{next:{revalidate: 1800}})
     return await response.json()
 }
 
