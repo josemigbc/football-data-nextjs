@@ -5,7 +5,7 @@ import config from "@/config";
 
 const baseUrl = config.BASE_URL
 async function getMatches(date=null) {
-  const response = await fetch(`${baseUrl}/matches/${date ? `?date=${date}`: ""}`)
+  const response = await fetch(`${baseUrl}/matches/${date ? `?date=${date}`: ""}`,{next:{revalidate: 1800}})
   const data = response.json()
   return data
 }
@@ -41,7 +41,7 @@ export default async function Page({searchParams}) {
         Object.entries(dataByLeague).map(([league, data], index) => (
           <section key={index}>
             <h2 className="text-lg items-center mb-2 px-6">{data[0].competition.name}</h2>
-            <MatchList data={data} />
+            <MatchList data={data} scroll={false}/>
           </section>
         ))
       }

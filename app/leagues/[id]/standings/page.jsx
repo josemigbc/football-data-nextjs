@@ -3,7 +3,7 @@ import Standings from "./Standings";
 
 const baseUrl = config.BASE_URL
 const getStandings = async (id) => {
-    const response = await fetch(`${baseUrl}/standings/${id}`)
+    const response = await fetch(`${baseUrl}/standings/${id}`,{next:{revalidate: 9800}})
     return await response.json()
 }
 

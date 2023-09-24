@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 
 const baseUrl = config.BASE_URL
 const getScorers = async (id) => {
-    const response = await fetch(`${baseUrl}/scorers/${id}`)
+    const response = await fetch(`${baseUrl}/scorers/${id}`,{next:{revalidate: 9800}})
     if (response.status !== 200) {
         notFound()
     }
