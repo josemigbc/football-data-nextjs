@@ -14,7 +14,7 @@ export default async function Page({ params }) {
     return (
         <div>
             {data.map(group => (
-                <section className="px-5 mb-3">
+                <section className="px-5 mb-3" key={group.group}>
                     <h4 className="text-center">{group.group}</h4>
                     <Standings data={group.table} />
                 </section>

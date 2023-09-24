@@ -1,5 +1,6 @@
 import config from "@/config";
 import Link from "next/link";
+import Image from "next/image";
 
 const baseUrl = config.BASE_URL
 const getMatch = async (id) => {
@@ -13,7 +14,7 @@ const TeamContainer = ({ data }) => {
         <Link href={`/team/${data.id}`}>
             <div className="flex flex-col items-center text-xs sm:text-sm md:text-base">
                 <div>
-                    <img src={data.crest} className="md:w-14 md:h-14 w-10 h-10 mb-3" />
+                    <Image src={data.crest} width={20} height={20} alt={data.name} className="md:w-14 md:h-14 w-10 h-10 mb-3" />
                 </div>
                 <div><h3>{data.name}</h3></div>
             </div>
