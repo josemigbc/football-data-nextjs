@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const baseUrl = config.BASE_URL
 const getMatch = async (id) => {
-    const response = await fetch(`${baseUrl}/matches/${id}`, { next: { revalidate: 1800 } })
-    const data = response.json()
+    const response = await fetch(`${baseUrl}/match/${id}`, { next: { revalidate: 1800 } })
+    const data = await response.json()
     return data
 }
 

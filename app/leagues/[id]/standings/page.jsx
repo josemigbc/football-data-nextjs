@@ -3,8 +3,9 @@ import Standings from "./Standings";
 
 const baseUrl = config.BASE_URL
 const getStandings = async (id) => {
-    const response = await fetch(`${baseUrl}/standings/${id}`,{next:{revalidate: 9800}})
-    return await response.json()
+    const response = await fetch(`${baseUrl}/${id}/standings`,{next:{revalidate: 9800}})
+    const data = await response.json()
+    return data.standings
 }
 
 export default async function Page({ params }) {

@@ -3,8 +3,9 @@ import config from "@/config";
 
 const baseUrl = config.BASE_URL
 const getMatches = async (id) => {
-    const response = await fetch(`${baseUrl}/matches/?competition=${id}`,{next:{revalidate: 1800}})
-    return await response.json()
+    const response = await fetch(`${baseUrl}/${id}/matches`,{next:{revalidate: 1800}})
+    const raw_data = await response.json()
+    return raw_data.matches
 }
 
 export default async function Page({params}){

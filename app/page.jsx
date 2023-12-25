@@ -6,7 +6,7 @@ import config from "@/config";
 
 const baseUrl = config.BASE_URL
 async function getMatches(date = null) {
-  const response = await fetch(`${baseUrl}/matches/${date ? `?date=${date}` : ""}`, { next: { revalidate: 1800 } })
+  const response = await fetch(`${baseUrl}/match${date ? `?utcDate=${date}` : ""}`, { next: { revalidate: 1800 } })
   const data = response.json()
   return data
 }

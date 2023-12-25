@@ -1,10 +1,9 @@
 import MatchList from "@/app/MatchList";
-import PageTitle from "@/app/PageTitle";
 import config from "@/config";
 
 const baseUrl = config.BASE_URL
 const getMatchesByTeam = async (id) => {
-    const response = await fetch(`${baseUrl}/matches/?team=${id}`,{next:{revalidate: 1800}})
+    const response = await fetch(`${baseUrl}/match?team_id=${id}`,{next:{revalidate: 1800}})
     return await response.json()
 }
 
